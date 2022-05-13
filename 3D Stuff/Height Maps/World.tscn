@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://map.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+uniform sampler2D map;
+uniform sampler2D norm;
+uniform float scale = 1.0;
+varying vec2 pos;
+
+void vertex(){
+	pos = VERTEX.xz / 8.0 + 3700.0 + 0.5;
+	VERTEX.y = texture(map, pos).z * scale;
+}
+
+void fragment(){
+	ALBEDO = texture(map, pos).xyz;
+	NORMALMAP = texture(norm, pos).xyz;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scale = 1.0
+shader_param/map = ExtResource( 1 )
+shader_param/norm = ExtResource( 1 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 8, 8 )
+subdivide_width = 512
+subdivide_depth = 512
+
+[node name="World" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null

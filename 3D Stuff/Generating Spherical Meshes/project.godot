@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "MeshInstance",
+"class": "Face",
+"language": "GDScript",
+"path": "res://Face.gd"
+}, {
+"base": "Resource",
+"class": "PlanetData",
+"language": "GDScript",
+"path": "res://PlanetData.gd"
+}, {
+"base": "MeshInstance",
+"class": "Sphere",
+"language": "GDScript",
+"path": "res://SphericalMesh.gd"
+} ]
+_global_script_class_icons={
+"Face": "",
+"PlanetData": "",
+"Sphere": ""
+}
+
+[application]
+
+config/name="Spherical Mesh"
+run/main_scene="res://World.tscn"
+config/icon="res://icon.png"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

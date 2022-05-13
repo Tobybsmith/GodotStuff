@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="Environment" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="ShaderMaterial" id=7]
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 7 )
+
+[node name="Root" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="Floor" type="StaticBody" parent="World"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Floor"]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Floor"]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="World"]
+transform = Transform( -0.559062, 0.76361, -0.323032, -0.631962, -0.140241, 0.762205, 0.536725, 0.630264, 0.560976, -36.86, 36.7041, 34.4809 )
+shadow_enabled = true

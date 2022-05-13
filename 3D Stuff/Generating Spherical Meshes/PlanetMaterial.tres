@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://map.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=9]
+code = "shader_type spatial;
+uniform float min_height;
+uniform float max_height;
+uniform sampler2D map;
+varying float height;
+varying vec2 pos;
+
+void vertex(){
+	//get height of vertex to modulate the color based on the height
+	//modulate pos based on UV coords
+	pos = VERTEX.xz / 2.0 + 1080.0 + 0.5;
+	VERTEX.xyz *= (texture(map,pos).x * 0.1) + vec3(1);
+}
+
+void fragment(){
+	float t = height / (max_height - min_height ) - (min_height / (max_height - min_height));
+	//ALBEDO = vec3(t);
+	ALBEDO = texture(map, pos).xyz;
+}"
+
+[resource]
+shader = SubResource( 9 )
+shader_param/min_height = 1.0
+shader_param/max_height = 1.0
+shader_param/map = ExtResource( 1 )

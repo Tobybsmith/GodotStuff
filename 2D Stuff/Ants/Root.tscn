@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://target/Target.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ant/Ant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level_managers/TargetManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameManager.gd" type="Script" id=4]
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Ant" parent="." instance=ExtResource( 2 )]
+position = Vector2( 143, 267 )
+
+[node name="Manager" parent="." instance=ExtResource( 3 )]
+
+[node name="Target" parent="Manager" groups=["targets"] instance=ExtResource( 1 )]
+position = Vector2( 380, 238 )

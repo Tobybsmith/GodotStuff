@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/resources/tilemap/GroundTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/TestLevel.gd" type="Script" id=2]
+[ext_resource path="res://scenes/resources/tilemap/SkyTileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/sprites/tiles/PlayerTile.png" type="Texture" id=4]
+
+[node name="Root" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ground" type="TileMap" parent="Level"]
+z_index = -1
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -393205, 2, 0, -393204, 0, 0, -327671, 2, 0, -327670, 3, 0, -327669, 4, 0, -327668, 1, 0, -327667, 3, 0, -327666, 0, 0, -262135, 1, 0, -262134, 0, 0, -262133, 6, 0, -262132, 6, 0, -262131, 6, 0, -262130, 1, 0, -262129, 0, 0, -262127, 6, 0, -196598, 5, 0, -196597, 6, 0, -196596, 6, 0, -196595, 6, 0, -196594, 2, 0, -196593, 4, 0, -196591, 6, 0, -131062, 1, 0, -131061, 3, 0, -131060, 3, 0, -131059, 3, 0, -131058, 4, 0, -131055, 6, 0, -65520, 6, 0, -65519, 6, 0, 13, 6, 0, 14, 6, 0, 15, 6, 0, 16, 6, 0 )
+
+[node name="Sky" type="TileMap" parent="Level"]
+mode = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 32 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( -524279, 1, 0, -524278, 1, 0, -524277, 1, 0, -524276, 1, 0, -458745, 1, 0, -458744, 1, 0, -458743, 1, 0, -458742, 1, 0, -458741, 1, 0, -458740, 1, 0, -458739, 1, 0, -458738, 1, 0, -393209, 1, 0, -393208, 1, 0, -393207, 1, 0, -393206, 1, 0, -393205, 1, 0, -393204, 1, 0, -393203, 1, 0, -393202, 1, 0, -393201, 1, 0, -327673, 1, 0, -327672, 1, 0, -327671, 1, 0, -327670, 1, 0, -327669, 1, 0, -327668, 1, 0, -327667, 1, 0, -327666, 1, 0, -327665, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 1, 0, -262133, 1, 0, -262132, 1, 0, -262131, 1, 0, -262130, 1, 0, -262129, 1, 0, -196600, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -196595, 1, 0, -196594, 1, 0, -196593, 1, 0, -131064, 1, 0, -131063, 1, 0, -131062, 1, 0, -131061, 1, 0, -131060, 1, 0, -131059, 1, 0, -131058, 1, 0 )
+
+[node name="PlayerTile" type="Sprite" parent="Level/Sky"]
+position = Vector2( 512, 128 )
+z_index = 10
+texture = ExtResource( 4 )
