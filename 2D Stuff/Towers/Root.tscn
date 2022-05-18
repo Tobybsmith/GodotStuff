@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Tower.tscn" type="PackedScene" id=1]
+
+[node name="Root" type="Node2D"]
+
+[node name="Base" parent="." instance=ExtResource( 1 )]
+position = Vector2( 53, 551 )
+
+[node name="Base2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 251, 551 )
+
+[node name="Base3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, 551 )
+
+[node name="Base4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 449, 551 )
+
+[node name="Base5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 350, 551 )
